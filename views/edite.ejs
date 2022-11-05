@@ -1,0 +1,95 @@
+<%- include("layout1/header") %>
+<section>
+    <!-- formulaire d'inscription-->
+    <br><br><br><br><br><br>
+    <p>
+        <form class="formulare" id="formulaire" action="/update/<%= candidat._id %>" method="POST"  enctype="multipart/form-data" role="form">
+            <table>
+                <tr><td>Informations du candidat</td></tr>
+             </table><br><br><br>
+             
+         <div><input  type="file" onchange="handleFiles(files)" id="upload" name="nouvelle_photo" value="candidat.photo" class="photo" required="selectionner une photo"></div><br><br>
+         <div><label for="upload"  class="photo-label"><span id="preview"></span></label></div>
+         <img src="<%=candidat.photo %> "  width="100" class="img-thumbnail mt-1">
+         <br><br><br><br><br><br><br><br>
+
+        <label class="date-contact"> Nom </label> <input id="mon-input" type="text" name="nom" value="<%=candidat.nom %> " placeholder="  Nom candidat" required="renseignez le nom"  class="nom-prenom">
+        <label class="label-prenom"> Prénom </label> <input id="mon-input" type="text" name="prenom" value="<%=candidat.prenom %> "  placeholder="  Prénom candidat" required="renseignez le prénom" class="input-prenom"><br>
+        <label class="date-contact"> Date naissance</label> <input id="mon-input" type="date" name="naissance" value="<%=candidat.naissance %>"  placeholder="  Date du naissance" required="renseignez la date de naissance"  class="date-input"> 
+        <label class="label-contact"> Contact</label> <input id="mon-input" type="text" name="contact" value="<%=candidat.contact %> " placeholder="  Contact" required="renseignez le contact" class="input-contact"><br>
+        
+        <label class="date-contact"> Document d'identificat</label> 
+        <select name="identification" id="" class="input-identification" value="<%=candidat.identification %> ">
+         <option value="0"></option>
+         <option value="ATTESTATION">ATTESTATION</option>
+         <option value="CNI">CNI</option>
+         <option value="PASSPORT">PASSPORT</option>
+         <option value="AUTRES">AUTRES</option>
+        </select>
+        
+        <label class="date-contact">Nationnalité</label> <input id="mon-input" value="<%=candidat.nationalite %> " type="text" name="nationnalite" placeholder="   Nationnalité" required="renseignez la Nationnalité" class="input-nationnalite"><br>
+        <label class="date-contact"> Ville  </label> <input id="mon-input" value="<%=candidat.ville %> " type="text" name="ville" placeholder="  Ville candidat" required="renseignez la ville"  class="imput-ville">
+        <label class="date-contact"> profession </label> <input id="mon-input" value="<%=candidat.profession %> " type="text" name="profession" placeholder="   Profession candidat" required="renseignez la profession"  class="input-profession">
+        <br>
+        <br>
+
+        <table>
+            <tr><td>Informations des parents</td></tr>
+         </table><br>
+    
+    <label class="date-contact"> Nom du pére</label> <input id="mon-input" type="text" name="pere" value="<%=candidat.pere %> " placeholder="  Nom du père" required="renseignez le nom du père" class="input-pere">
+    <label class="date-contact"> Nom de la mère</label> <input id="mon-input" type="text" name="mere" value="<%=candidat.mere %> " placeholder="  Nom de la mère" required="renseignez le nom de la mère" class="input-mere"><br><br>
+    
+    
+    <table>
+        <tr><td>Type de permis conduire</td></tr>
+     </table><br>
+
+       <label class="date-contact"> Categorie</label> 
+       <select name="categorie" id="" class="input-categorie" value="<%=candidat.categorie %> ">
+        <option value="0"></option>
+        <option value="permis A">permis A</option>
+        <option value="permis B">permis B</option>
+        <option value="permis C">permis C</option>
+
+
+       </select>
+       <br><br><br><br><br>
+    <button class="btn-enregstrer" type="submit"> Enregistrer</button>
+        </form>
+    </p>
+   <!-- image -->
+
+<style>
+#preview{
+width: 200px;
+display: inline-block;
+}
+    #preview img{
+      width: 50%;
+      
+    }
+    .photo{
+        float: right;
+    }
+
+    .photo-label{
+        float: right;
+        margin-right: 100px;
+    }
+
+.btn-inscription{
+color: rgb(12, 191, 54);
+font-weight: 900;
+
+}
+.info{
+margin-left: 50px;
+
+}
+  </style>    
+
+
+</section>
+
+<%- include("layout1/footer") %>

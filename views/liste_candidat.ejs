@@ -1,0 +1,97 @@
+<%- include("layout1/header") %>
+
+<!-- table -->
+
+
+<div class="container">
+    <div class="row m-4">
+        <div class="col-lg-12">
+            <!--  -->
+            <br><br>
+            <h1>Listes des candidats</h1><br><br>
+            <div class="table-responsive">
+            <% if (candidat !='') 
+            { %>
+             <table class="table" >
+                    <thead>
+                        <tr class="table-green">
+                            <th >ID</th>
+                            <th >NOM</th>
+                            <th >PRENOM</th>
+                            <th >PHOTO</th>
+                            <th >DATE DE NAISSANCE</th>
+                            <th >PERE</th>
+                            <th >MERE</th>
+                            <th >CATEGORIE</th>
+                            <th >TELEPHONE</th>
+                            <th >PROFESSION</th>
+                            <th >NATIONALITE</th>
+                            <th >IDENTIFICATION</th>
+                            <th >VILLE</th>
+                            <th>EDITER</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                       <% candidat.forEach((row, index) => { %>
+                        <tr >
+                            <td><%= index %> </td>
+                            <td><%= row.nom %> </td>
+                            <td><%= row.prenom %></td>
+                            <td><img src="<%= row.photo %> " width="50" class="img-thumbnail" ></td>
+                            <td><%= row.naissance %></td>
+                            <td><%= row.pere %></td>
+                            <td><%= row.mere %></td>
+                            <td><%= row.categorie %></td>
+                            <td><%= row.contact %></td>
+                            <td><%= row.profession %></td>
+                            <td><%= row.nationalite %></td>
+                            <td><%= row.identification %></td>
+                            <td><%= row.ville %></td>
+                            <td><a href="/edite/<%=row._id %> " class="text-success"><i class="fas fa-edit fa-lg mx-1"></i></a>
+                                <a href="/delete/<%=row._id %> " class="text-danger"><i class="fas fa-trash  fa-lg mx-1"></i></a></td>
+                         
+                        </tr>
+                       <% }) %>
+                    </tbody>
+                </table>
+            <% }  else { %>
+                <h1 class="text-center text-secondary my-5">
+                    canndidat non trouve dans la base de donnée !</h1>
+              <% } %> 
+                
+            </div>
+        </div>
+    </div>
+
+</div>
+<style>
+    th{
+        font-size: 10px;
+        margin: 5px;
+        background-color: #03743c;
+        font-weight: 900;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: aliceblue;
+        border: solid 1px rgb(61, 60, 60);
+        
+
+    }
+    
+    td{
+        margin: 4px;
+        border: solid 1px rgb(190, 186, 186);
+        font-size: 13px;
+
+    }
+    tr{
+        background-color:white;
+        border: solid 1px rgb(190, 186, 186);
+    }
+    tbody{
+       
+        font-weight: 600;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+    
+</style>
+<%- include("layout1/footer") %>
