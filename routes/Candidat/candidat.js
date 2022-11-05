@@ -6,7 +6,7 @@ const multer = require('multer');
 const fs = require('fs');
 
 
-//les routes  des differentes pages
+//les routes  des differentes pages du site
 router.get('/',(req, res)=>{
   res.render('index' ,{title : 'page accueil'});
 }
