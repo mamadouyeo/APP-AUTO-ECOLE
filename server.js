@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const port = process.env.PORT || 3000;
 const dotenv = require('dotenv').dotenv;
 const multer = require('multer');
 const session = require('express-session');
@@ -45,6 +46,9 @@ app.set('view engine', 'ejs');
 //les routes
 app.use('', require('./routes/Candidat/candidat'));
 
-app.listen(process.env.PORT || 3000, () => {
-    console.log('ecoute sur le port ', process.env.PORT || 3000);
-  });
+// app.listen(process.env.PORT || 3000, () => {
+//     console.log('ecoute sur le port ', process.env.PORT || 3000);
+//   });
+  server.listen(port, () => {
+    console.log("App is running on port " + port);
+});
