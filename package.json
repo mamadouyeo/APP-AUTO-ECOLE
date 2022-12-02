@@ -1,11 +1,11 @@
 {
   "name": "site-auto-ecole-nouveau",
   "version": "1.0.0",
-  "description": "",
-  "main": "nodemon server.js",
+  "description": "ejs et node",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server"
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",

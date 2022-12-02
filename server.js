@@ -1,4 +1,5 @@
 const express = require('express');
+const router = express.Router();
 const app = express();
 const port = process.env.PORT || 3000;
 const dotenv = require('dotenv').dotenv;
@@ -34,6 +35,8 @@ next();
 );
 
 
+
+
 app.use('/bootstrap/css', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/css')));
 app.use('/bootstrap/js', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/js')));
 app.use('/jquery', express.static(path.join(__dirname, 'node_modules/jquery/dist')));
@@ -46,9 +49,6 @@ app.set('view engine', 'ejs');
 //les routes
 app.use('', require('./routes/Candidat/candidat'));
 
-// app.listen(process.env.PORT || 3000, () => {
-//     console.log('ecoute sur le port ', process.env.PORT || 3000);
-//   });
-  server.listen(port, () => {
-    console.log("App is running on port " + port);
-});
+app.listen(process.env.PORT || 3000, () => {
+    console.log('ecoute sur le port ', process.env.PORT || 3000);
+  });

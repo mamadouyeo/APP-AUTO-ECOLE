@@ -7,7 +7,7 @@ const fs = require('fs');
 
 
 //les routes  des differentes pages du site
-router.get('/',(req, res)=>{
+router.get('/api/auto-ecole/v1',(req, res)=>{
   res.render('index' ,{title : 'page accueil'});
 }
 );
@@ -55,7 +55,7 @@ const upload = multer({
 
 
 // la route pour enregistrer les données dans la base de donnée
-router.post('/enregistre',upload, (req, res)=>
+router.post('/api/auto-ecole/v1/enregistre',upload, (req, res)=>
 {
   console.log(req.body);
   const candidat = new Candidat(
@@ -93,7 +93,7 @@ router.post('/enregistre',upload, (req, res)=>
     
 });
 // la liste des candidats
-router.get('/ListesCandidats',(req, res)=>{ 
+router.get('/api/auto-ecole/v1/ListesCandidats',(req, res)=>{ 
   Candidat.find().exec((err , candidat)=>{
     if (err) 
     {
@@ -112,7 +112,7 @@ router.get('/ListesCandidats',(req, res)=>{
 );
 
 // modification des candidats
-router.get('/edite/:id',(req, res)=>
+router.get('/api/auto-ecole/v1/edite/:id',(req, res)=>
 {
   let id = req.params.id;
  Candidat.findById(id,(err, Candidat)=>
@@ -135,7 +135,7 @@ router.get('/edite/:id',(req, res)=>
 );
 
 // mise ajour des candidats
-router.post('/update/:id',upload,(req, res)=>
+router.post('/api/auto-ecole/v1/update/:id',upload,(req, res)=>
 {
   let id = req.params.id;
   let nouvelle_photos ='';
@@ -185,7 +185,7 @@ router.post('/update/:id',upload,(req, res)=>
 });
 
 // supression d'un candidat
-router.get('/delete/:id', (req, res) =>
+router.get('/api/auto-ecole/v1/delete/:id', (req, res) =>
 {
   let id = req.params.id;
 Candidat.findByIdAndRemove(id, (err, Result)=>
