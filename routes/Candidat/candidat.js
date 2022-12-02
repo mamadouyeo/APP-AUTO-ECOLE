@@ -11,25 +11,25 @@ router.get('/api/auto-ecole/v1',(req, res)=>{
   res.render('index' ,{title : 'page accueil'});
 }
 );
-router.get('/views/formulaire.ejs',(req, res)=>{
+router.get('/api/auto-ecole/v1/views/formulaire.ejs',(req, res)=>{
   res.render('formulaire' ,{title : 'page formulaire'});
 }
 );
 
-router.get('/views/edite.ejs',(req, res)=>{
+router.get('/api/auto-ecole/v1/views/edite.ejs',(req, res)=>{
   res.render('edite' ,{title : 'page modification du formulaire'});
 }
 );
 
-router.get('/views/liste_candidat.ejs',(req, res)=>{
+router.get('/api/auto-ecole/v1/views/liste_candidat.ejs',(req, res)=>{
   res.render('liste_candidat' ,{title : 'page listes des candidat'});
 }
 );
-router.get('/views/compte.ejs',(req, res)=>{
+router.get('/api/auto-ecole/v1/views/compte.ejs',(req, res)=>{
   res.render('compte' ,{title : 'page creation de compte Admin'});
 }
 );
-router.get('/views/connection.ejs',(req, res)=>{
+router.get('/api/auto-ecole/v1/views/connection.ejs',(req, res)=>{
   res.render('connection' ,{title : 'page connexion'});
 }
 );
